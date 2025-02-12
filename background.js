@@ -39,6 +39,10 @@ chrome.runtime.onMessage.addListener((data, sender, sendResponse) => {
             disableBlock()
             stopped = true
             break;
+
+        case 'UpdateTime':
+            totalTime = data.prefs.hrs * 3600 + data.prefs.mins * 60 + data.prefs.secs;
+            break;
     }
 })
 

@@ -169,15 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start, Stop, and Reset
     
     function start() {
-        let hours = parseInt(document.querySelector(
-            '#clock [data-value="hours"]'
-        ).textContent)
-        let minutes = parseInt(document.querySelector(
-            '#clock [data-value="minutes"]'
-        ).textContent)
-        let seconds = parseInt(document.querySelector(
-            '#clock [data-value="seconds"]'
-        ).textContent)
+        let hours = parseInt(getHours())
+        let minutes = parseInt(getMins())
+        let seconds = parseInt(getSeconds())
 
         // only make timer "start" if there is time left
 
@@ -205,15 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
             timer.stop()
         }
     
-        let hours = parseInt(document.querySelector(
-            '#clock [data-value="hours"]'
-        ).textContent)
-        let minutes = parseInt(document.querySelector(
-            '#clock [data-value="minutes"]'
-        ).textContent)
-        let seconds = parseInt(document.querySelector(
-            '#clock [data-value="seconds"]'
-        ).textContent)
+        hours = parseInt(getHours())
+        minutes = parseInt(getMins())
+        seconds = parseInt(getSeconds())
     
         const prefs = {
             hrs: hours,
@@ -222,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         chrome.runtime.sendMessage({event: 'StoppedTimer', prefs})
+        chrome.runtime.sendMessage({event: 'UpdateTime', prefs})
     
     }
     
@@ -243,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         chrome.runtime.sendMessage({event: 'StoppedTimer', prefs})
+        chrome.runtime.sendMessage({event: 'UpdateTime', prefs})
     }
     
     // Helper for padding zeros to the string (since timers aren't single digits usually)
@@ -262,6 +252,18 @@ document.addEventListener('DOMContentLoaded', () => {
             hours++
         }
         displayUpdateHours(hours)
+
+        hours = parseInt(getHours())
+        minutes = parseInt(getMins())
+        seconds = parseInt(getSeconds())
+
+        const prefs = {
+            hrs: hours,
+            mins: minutes,
+            secs: seconds
+        }
+    
+        chrome.runtime.sendMessage({event: 'UpdateTime', prefs})
     }
     
     function minusHour() {
@@ -273,6 +275,18 @@ document.addEventListener('DOMContentLoaded', () => {
             hours--
         }
         displayUpdateHours(hours)
+
+        hours = parseInt(getHours())
+        minutes = parseInt(getMins())
+        seconds = parseInt(getSeconds())
+
+        const prefs = {
+            hrs: hours,
+            mins: minutes,
+            secs: seconds
+        }
+    
+        chrome.runtime.sendMessage({event: 'UpdateTime', prefs})
     }
     
     function plusMin() {
@@ -284,6 +298,18 @@ document.addEventListener('DOMContentLoaded', () => {
             minutes++
         }
         displayUpdateMinutes(minutes)
+
+        hours = parseInt(getHours())
+        minutes = parseInt(getMins())
+        seconds = parseInt(getSeconds())
+
+        const prefs = {
+            hrs: hours,
+            mins: minutes,
+            secs: seconds
+        }
+    
+        chrome.runtime.sendMessage({event: 'UpdateTime', prefs})
     }
     
     function minusMin() {
@@ -295,6 +321,18 @@ document.addEventListener('DOMContentLoaded', () => {
             minutes--
         }
         displayUpdateMinutes(minutes)
+
+        hours = parseInt(getHours())
+        minutes = parseInt(getMins())
+        seconds = parseInt(getSeconds())
+
+        const prefs = {
+            hrs: hours,
+            mins: minutes,
+            secs: seconds
+        }
+    
+        chrome.runtime.sendMessage({event: 'UpdateTime', prefs})
     }
     
     function plusSec() {
@@ -306,6 +344,18 @@ document.addEventListener('DOMContentLoaded', () => {
             seconds++
         }
         displayUpdateSeconds(seconds)
+
+        hours = parseInt(getHours())
+        minutes = parseInt(getMins())
+        seconds = parseInt(getSeconds())
+
+        const prefs = {
+            hrs: hours,
+            mins: minutes,
+            secs: seconds
+        }
+    
+        chrome.runtime.sendMessage({event: 'UpdateTime', prefs})
     }
     
     function minusSec() {
@@ -317,6 +367,18 @@ document.addEventListener('DOMContentLoaded', () => {
             seconds--
         }
         displayUpdateSeconds(seconds)
+
+        hours = parseInt(getHours())
+        minutes = parseInt(getMins())
+        seconds = parseInt(getSeconds())
+
+        const prefs = {
+            hrs: hours,
+            mins: minutes,
+            secs: seconds
+        }
+    
+        chrome.runtime.sendMessage({event: 'UpdateTime', prefs})
     }
     
     // helpers for getting and updating the value on the timer
