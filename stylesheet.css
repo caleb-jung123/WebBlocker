@@ -25,7 +25,7 @@ body {
     border: 0;
     padding: 20px;
 
-    color: rgb(48, 48, 48);
+    color: #303030;
     box-shadow: 5px 5px 10px #c5c5c5, -5px -5px 10px #ffffff;
 }
 
@@ -35,10 +35,10 @@ body {
     align-items: center;
     gap: 10px;
     padding-bottom: 25px;
-    
+
     font-size: 5rem;
     font-weight: 100;
-    text-shadow: 0 0 10px rgba(83, 83, 83, 0.7);
+    text-shadow: 0 0 10px #535353
 }
 
 .time-adjust {
