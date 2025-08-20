@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "Productive Web Blocker",
+    "version": "1.0.0",
+    "description": "blocks potential distractions whilst working",
+    "permissions": ["storage", "activeTab", "tabs", "declarativeNetRequest"],
+    "host_permissions": ["<all_urls>"],
+    "declarative_net_request": {
+        "rule_resources": [
+        {
+            "id": "rules",
+            "enabled": false,
+            "path": "rules.json"
+        }
+        ]
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["redirect.html", "redirect.css", "settings.css"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "/popup.html",
+        "default_title": "Productive Web Blocker",
+        "default_icon": {
+            "16": "icons/icon_16x16.png",
+            "48": "icons/icon_48x48.png",
+            "128": "icons/icon_128x128.png"
+        }
+    }
+}

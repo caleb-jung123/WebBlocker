@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Productive Web Blocker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/settings.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-icon">⚙️</div>
+            <div class="header-info">
+                <h1>Settings</h1>
+                <p>Manage your web blocking preferences</p>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="websites">Manage Websites</button>
+            <button class="tab" data-tab="features">Features</button>
+            <button class="tab" data-tab="pomodoro">Pomodoro</button>
+        </div>
+
+        <div class="tab-content">
+            <div id="websites" class="tab-panel active">
+                <h2 class="section-title">Blocked Websites</h2>
+                
+                <div id="timerStatusNotice" class="timer-status-notice" style="display: none;">
+                    <p><span id="timerStatusIcon">⏰</span> <span id="timerStatusText">Timer is running - settings are read-only until timer stops</span></p>
+                </div>
+                
+                <div class="info-notice">
+                    <p><strong>ℹ️ Note:</strong> Websites are only blocked when the focus timer is active. Default websites and your custom websites will be blocked during timer sessions.</p>
+                </div>
+                <div class="website-input-group">
+                    <input type="text" class="website-input" id="websiteInput" placeholder="Enter website URL (e.g., facebook.com)">
+                    <button class="add-btn" id="addWebsiteBtn">Add Website</button>
+                </div>
+                <div class="website-list" id="websiteList">
+                    <div class="empty-state">No websites blocked yet. Add a website above to get started.</div>
+                </div>
+            </div>
+
+            <div id="features" class="tab-panel">
+                <h2 class="section-title">Features</h2>
+                <div class="feature-item">
+                    <div class="feature-info">
+                        <h3>Extreme Mode</h3>
+                        <p>Once you start the timer, you cannot stop it until the time runs out. Perfect for maintaining focus without distractions.</p>
+                    </div>
+                    <div class="toggle-switch" id="extremeMode">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pomodoro" class="tab-panel">
+                <h2 class="section-title">Pomodoro Timer</h2>
+                
+                <div class="feature-item">
+                    <div class="feature-info">
+                        <h3>Enable Pomodoro Mode</h3>
+                        <p>Automatically cycle between work and break periods. When enabled, timer controls will be locked during sessions.</p>
+                    </div>
+                    <div class="toggle-switch" id="pomodoroMode">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+
+                <div class="pomodoro-settings" id="pomodoroSettings">
+                    <div class="setting-group">
+                        <label class="setting-label">Work Duration (minutes)</label>
+                        <div class="time-input-group">
+                            <button class="time-adjust-btn" data-action="decrease" data-target="workTime">-</button>
+                            <input type="number" id="workTime" class="time-input" min="1" max="120" value="25">
+                            <button class="time-adjust-btn" data-action="increase" data-target="workTime">+</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">Break Duration (minutes)</label>
+                        <div class="time-input-group">
+                            <button class="time-adjust-btn" data-action="decrease" data-target="breakTime">-</button>
+                            <input type="number" id="breakTime" class="time-input" min="1" max="60" value="5">
+                            <button class="time-adjust-btn" data-action="increase" data-target="breakTime">+</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">Long Break Duration (minutes)</label>
+                        <div class="time-input-group">
+                            <button class="time-adjust-btn" data-action="decrease" data-target="longBreakTime">-</button>
+                            <input type="number" id="longBreakTime" class="time-input" min="1" max="120" value="15">
+                            <button class="time-adjust-btn" data-action="increase" data-target="longBreakTime">+</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">Cycles Until Long Break</label>
+                        <div class="time-input-group">
+                            <button class="time-adjust-btn" data-action="decrease" data-target="cyclesUntilLongBreak">-</button>
+                            <input type="number" id="cyclesUntilLongBreak" class="time-input" min="1" max="10" value="4">
+                            <button class="time-adjust-btn" data-action="increase" data-target="cyclesUntilLongBreak">+</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">Total Pomodoro Cycles</label>
+                        <div class="time-input-group">
+                            <button class="time-adjust-btn" data-action="decrease" data-target="totalCycles">-</button>
+                            <input type="number" id="totalCycles" class="time-input" min="1" max="20" value="8">
+                            <button class="time-adjust-btn" data-action="increase" data-target="totalCycles">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/settings.js"></script>
+</body>
+</html>
