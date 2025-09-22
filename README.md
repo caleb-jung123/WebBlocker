@@ -9,5 +9,5 @@ A chrome extension that uses the netDeclarativeRequest API to block certain webs
 
 # Tech Stack
 - Popup UI: HTML, CSS
-- Settings UI, HTML, CSS
+- Settings UI: HTML, CSS
 - Timer logic: JavaScript
