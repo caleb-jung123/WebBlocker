@@ -15,7 +15,11 @@ A chrome extension that uses the netDeclarativeRequest API to block certain webs
 # Setup Guide
 The following are steps you should follow if you wish to use this chrome extension:
 
-1. Open a terminal and navigate to a directory of your choice. Then, type in the following command: git clone https://github.com/caleb-jung123/WebBlocker.git
+1. Open a terminal and navigate to a directory of your choice. Then, type in the following command:
+   
+   ```bash
+   git clone https://github.com/caleb-jung123/LolTrack.git
+   ```
 2. Open chrome and go to the following: chrome://extensions
 3. Toggle Developer Mode on (This slider is located on the top right of the page)
 4. Click the Load Unpacked button (This button is located near the top left of the page)
